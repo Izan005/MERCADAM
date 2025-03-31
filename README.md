@@ -1,4 +1,5 @@
 # Práctica servicio de compra DAM
+![img/
 
 ## ÍNDICE
 
@@ -14,7 +15,15 @@
 El programa se divide en 2 partes:
 - **App de gestión** Crear clientes y productos.
 - **App de zona de clientes** Autenticación y selección de productos para comprar.
+
+
 ## Estructura de clases
+El programa sigue el paradigma de la (POO)** y se basa en la siguiente imagen
+
+### UML
+```Plant UML
+```
+
 ## Programa principal
 ## Pruebas
 ## Entrega
