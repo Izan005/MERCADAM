@@ -1,5 +1,5 @@
 # Práctica servicio de compra DAM
-![img/
+![MERCADAM.png](MERCADAM.png)
 
 ## ÍNDICE
 
@@ -21,8 +21,8 @@ El programa se divide en 2 partes:
 El programa sigue el paradigma de la (POO)** y se basa en la siguiente imagen
 
 ### UML
-```Plant UML
-```
+````Plant UML
+````
 
 ## Programa principal
 ## Pruebas
