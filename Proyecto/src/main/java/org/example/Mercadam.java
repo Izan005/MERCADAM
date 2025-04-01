@@ -1,25 +1,19 @@
 package org.example;
 
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
 
 public class Mercadam {
     static Random rdm = new Random();
 
-    private HashSet<Cliente> listaClientes;
+    private static List<Cliente> listaClientes = new ArrayList<>();
 
-    public Mercadam(){
-        listaClientes = new HashSet<>();
-    }
 
-    public void generarClientes(){
+    public static List<Cliente> generarClientes(){
        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
        int clientesTotales = rdm.nextInt(10)+1;
 
        int tamaño = 8;
-
-
 
         for (int i = 0; i < clientesTotales; i++) {
 
@@ -36,9 +30,10 @@ public class Mercadam {
             listaClientes.add(new Cliente(usuario, contraseña));
 
         }
-
-        System.out.println(listaClientes);
-
+        return listaClientes;
     }
 
+    public static List<Cliente> getListaClientes(){
+        return Collections.unmodifiableList(listaClientes);
+    }
 }

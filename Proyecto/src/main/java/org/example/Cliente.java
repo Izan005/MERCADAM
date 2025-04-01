@@ -11,6 +11,17 @@ public class Cliente {
     public Cliente (String usuario, String contraseña){
         this.usuario = usuario;
         this.contraseña = contraseña;
+        pedido = null;
+        promociones = false;
+        direccion = "Calle false, 123";
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
     }
 
     @Override
