@@ -5,7 +5,7 @@ import java.util.*;
 public class Mercadam {
     static Random rdm = new Random();
 
-    private static List<Cliente> listaClientes = new ArrayList<>();
+    private static List<Cliente> listaClientes = new ArrayList<>(Arrays.asList(new Cliente("key", "key")));
 
 
     public static List<Cliente> generarClientes(){

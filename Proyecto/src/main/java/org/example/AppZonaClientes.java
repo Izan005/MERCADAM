@@ -1,16 +1,14 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class AppZonaClientes {
 
     static Scanner in = new Scanner(System.in);
     static Cliente cliente;
-    public static void main(String[] args) {
+    static double total = 0;
+    public static void main(String[] args){
 
         List<Cliente> listaClientes = Mercadam.generarClientes();
         System.out.println(Mercadam.getListaClientes()); //Imprimir listaClientes
@@ -34,6 +32,7 @@ public class AppZonaClientes {
                 if (c.getUsuario().equals(usuario) && c.getContraseña().equals(contra)){
                     System.out.println("BIENVENID@, " + usuario);
                     cliente = c;
+                    cliente.crearPedido();
                     salir = true;
                     iniciarCompra();
                 }
@@ -52,19 +51,99 @@ public class AppZonaClientes {
     }
 
     public static void iniciarCompra(){
-        String producto = "";
-        System.out.println("Añade productos a tu lista de la compra... \n");
-        imprimirProductos();
-        producto = in.next();
-        
+
+        String producto = imprimirProductos();
+
+        comprobarProducto(producto);
+
 
     }
 
-    public static void imprimirProductos(){
+    public static String imprimirProductos(){
+        System.out.println("Añade productos a tu lista de la compra... \n");
         for (Producto p : Producto.values()){
             System.out.println("\t -" + p + " precio (" + p.getPrecio() + "€), \n");
-            System.out.println("=============================================");
-            System.out.println("Elige un producto:");
+
+        }
+        System.out.println("=============================================");
+        System.out.println("Elige un producto:");
+
+        return in.next().toUpperCase();
+    }
+
+    public static void comprobarProducto(String producto){
+
+        boolean existe = false;
+
+        for (Producto p : Producto.values()){
+            if (p.name().equals(producto)){
+                existe = true;
+            }
+        }
+
+        if (existe){
+            cliente.insertarProducto(producto);
+            mostrarCarrito();
+        } else {
+            System.out.println("ERROR. El producto seleccionado no existe.");
+            iniciarCompra();
+        }
+    }
+
+    public static void mostrarCarrito(){
+
+        System.out.println("=== CARRITO === \n Productos: ");
+        total = cliente.mostrarProductos();
+
+        System.out.println("¿Añadir otro producto? [S/N]");
+        switch (in.next().toUpperCase()){
+            case "S":
+                iniciarCompra();
+                break;
+            case "N":
+                menuFinal();
+                break;
+            default:
+                System.out.println("Opción no válida.");
+                mostrarCarrito();
+                break;
+        }
+    }
+
+    public static void menuFinal(){
+        System.out.println("=============================\n");
+        System.out.println("¿QUÉ DESEA HACER?\n\t[1]. Aplicar promo.\n\t[2]. Mostrar resumen ordenado por uds." +
+                "\n\t[3]. Terminar pedido.");
+        System.out.println("=============================\n\tElije una opción:");
+        seleccionMenuFinal();
+    }
+
+    public static void seleccionMenuFinal(){
+        String opc = in.next();
+        switch (opc) {
+            case "1":
+                if (!cliente.getPromociones()){
+                    total = cliente.getPedido().aplicarPromo3x2(total);
+                    total = cliente.getPedido().aplicarPromo10(total);
+                    System.out.println("IMPORTE TOTAL TRAS LAS PROMOCIONES: " + total + "€.");
+                    cliente.setPromociones(true);
+                }else {
+                    System.out.println("YA SE HAN APLICADO LAS PROMOCIONES");
+                }
+                menuFinal();
+                break;
+            case "2":
+                cliente.mostrarProductosPorUds();
+                menuFinal();
+                break;
+            case "3":
+                System.out.println("Tu pedido de importe " + total + "€ será enviado a tu casa.");
+                break;
+            default:
+                System.out.println("Opción no válida.");
+                menuFinal();
+                break;
+
         }
     }
 }
