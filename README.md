@@ -6,9 +6,8 @@
 
 1.  [Resumen](#resumen)
 2. [Estructura de clases](#estructura-de-clases)
-3. [Programa principal](#programa-principal)
-4. [Pruebas](#pruebas)
-5. [Entrega](#entrega)
+3. [Pruebas](#pruebas)
+4. [Entrega](#entrega)
 
 ## Resumen
 > Este proyecto consiste en la realización de una aplicación de compra online para un supermercado llamado **MERCADAM**.
@@ -87,7 +86,6 @@ AppZonaClientes --o Mercadam
 ### UML (imagen)
 ![DiagramaMercadam.png](DiagramaMercadam.png)
 
-## Programa principal
 ## Pruebas
 ## Entrega
--[ ] **Código fuente** [Enlace a GitHub]
+-**Código fuente:** [Enlace a GitHub](Proyecto/src/main/java/org/example)
