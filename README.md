@@ -87,5 +87,6 @@ AppZonaClientes --o Mercadam
 ![DiagramaMercadam.png](DiagramaMercadam.png)
 
 ## Pruebas
+-**Vídeo con las pruebas** [Vídeo](https://drive.google.com/file/d/1zoF0yNDee-CclNYPNrEMj4b6bMTnXMoh/view?usp=sharing)
 ## Entrega
 -**Código fuente:** [Enlace a GitHub](Proyecto/src/main/java/org/example)
