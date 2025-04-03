@@ -85,7 +85,7 @@ AppZonaClientes --o Mercadam
 @enduml
 ````
 ### UML (imagen)
-![DiagramaMercadam.png]()
+![DiagramaMercadam.png](DiagramaMercadam.png)
 
 ## Programa principal
 ## Pruebas
